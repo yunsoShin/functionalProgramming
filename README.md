@@ -182,6 +182,20 @@ function lazySum(a, b) {
   return result;
 }
 
+
+
+function makeCounter() {
+  let count = 0;
+  return function() {
+    return count++; // 외부 함수의 'count' 변수에 접근
+  };
+}
+
+const counter = makeCounter();
+console.log(counter()); // 0
+console.log(counter()); // 1
+
+
 const delayedSum = lazySum(3, 4);
 console.log(delayedSum()); // 계산을 실행하고 결과를 얻습니다: 7
 ```
